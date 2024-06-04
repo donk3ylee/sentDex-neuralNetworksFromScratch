@@ -11,9 +11,19 @@ weights = [[0.2, 0.8, -0.5, 1.0],
 
 biases = [2, 3, 0.5]
 
+# Add a second layer of neuron weights
+weights2 = [[0.1, -0.14, 0.5],
+            [-0.5, 0.12, -0.33],
+            [-0.44, 0.73, -0.13]]
+
+biases2 = [-1, 2, -0.5]
+
 # Because we are now using a batch of inputs we need to transpose the weights
 # so that we dont get a shape error. Note we swapped the dot order too.
-output = np.dot(inputs, np.array(weights).T) + biases
-print(output)
 
-# UPTO pt.4 17.05
+layer1_outputs = np.dot(inputs, np.array(weights).T) + biases
+layer2_outputs = np.dot(layer1_outputs, np.array(weights2).T) + biases2
+
+print(layer2_outputs    )
+
+# UPTO pt.4 18.48
